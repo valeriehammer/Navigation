@@ -10,13 +10,28 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationStack {
-            VStack {
+            VStack (spacing: 10) {
                 Text("This is the root view")
-                NavigationLink(destination: Text("You've arrived to the second view! 🎊")
                     .font(.title)
-                    .multilineTextAlignment(.center)){
-                    Text("Click me!")
+                    .fontWeight(.black)
+                
+                NavigationLink(destination: SecondView()){
+                        Text("Click me!")
+                            .fontWeight(.black)
                 }
+                //end Navigation link text
+                
+                NavigationLink(destination: Text("You've arrived to the third view! 🥳")
+                    .font(.title)
+                    .foregroundColor(Color.purple)
+                    .multilineTextAlignment(.center)) {
+                        Text("Or me!")
+                            .fontWeight(.black)
+                            .foregroundColor(Color.purple)
+                }
+                .navigationTitle("Home")
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarHidden(true)
             }
             //endVStack
         }
